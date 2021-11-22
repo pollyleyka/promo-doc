@@ -301,7 +301,7 @@
     </div>
     </footer>
 
-    <form action="" method="post" id="form" class="form">
+    <form action="" method="post" id="form" class="form visually-hidden">
       <div class="close">
       <h2>Записаться на прием</h2>
       <button type="button" name="button" class="close-btn">
@@ -310,10 +310,10 @@
       </div>
       <p>Заполните форму, и мы свяжемся с вами в ближайшее время</p>
       <label for="#user-name">Имя</label>
-      <input type="text" name="user-name" id="user-name" placeholder="Ваше имя">
+      <input type="text" name="user-name" id="user-name" placeholder="Ваше имя" required>
       <label for="#user-number">Номер телефона</label>
-      <input type="text" name="user-number" id="user-number" placeholder="+7 (___) ___ __ __">
-      <button type="button" name="button" class="button-send">Отправить</button>
+      <input type="text" name="user-number" id="user-number" placeholder="+7 (___) ___ __ __" required>
+      <button type="submit" name="button" class="button-send">Отправить</button>
       <p class="form-message">Нажимая кнопку «Отправить», я соглашаюсь с условиями обработки персональных данных</p>
     </form>
 
@@ -324,19 +324,31 @@
       <p>Спасибо. В ближайшее время мы вам перезвоним</p>
       <button type="button" name="close" class="button" aria-label="Закрыть">Понятно</button>
     </div>
-    <script src="app.js"></script>
-    <!-- <script>
-     var link = document.querySelector('.white-button');
+    <!-- <script src="app.js"></script> -->
+    <script>
+    var link = document.querySelector('.white-button');
      var popup = document.querySelector('.form');
-     var close = document.querySelector('.close-btn');
+     var exit = document.querySelector('.close-btn');
+     var login = popup.querySelector('[name="user-name"]');
+     var number = popup.querySelector('[name="user-number"]');
 
      link.addEventListener('click', function(evt) {
        evt.preventDefault();
+       popup.classList.remove('visually-hidden');
        popup.classList.add('modal-show');
-     })
-     close.addEventListener('click', function(evt){
+       login.focus();
+     });
+
+    popup.addEventListener('submit', function(evt) {
+      if(!login.value || !number.value){
        evt.preventDefault();
-       popup.classList.remove('modal-show')
-     })
-    </script> -->
+       console.log('нужно ввести имя и номер телефона');}
+     });
+
+     exit.addEventListener('click', function(evt){
+       evt.preventDefault();
+       popup.classList.remove('modal-show');
+       popup.classList.add('visually-hidden');
+     });
+    </script>
   </body>

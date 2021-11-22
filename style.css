@@ -1169,3 +1169,14 @@ main {
   margin: 0 auto;
   max-width: 1200px;
 }
+
+.modal-show {
+  display: block;
+  position: fixed;
+  top: 50px;
+  margin-left: 417px;
+}
+
+button:hover {
+    cursor: pointer;
+}
