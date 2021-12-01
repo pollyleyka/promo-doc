@@ -103,7 +103,7 @@
               <p class="doctors-name">Ольга Луговская</p>
               <p class="price">от 3500 ₽</p>
               <span class="doctor-phrase">«Знаю, как развивается ребенок и что точно не стоит считать патологией, и у меня есть много всяких наград"</span>
-              <a href="#form" class="button" tabindex="0">Записаться на прием</a>
+              <a href="#form" class="button doctor-btn" tabindex="0">Записаться на прием</a>
             </div>
             <div>
               <img src="./pic/Group 1570.png" alt="Фото" class="doctor-img">
@@ -244,7 +244,7 @@
         <div class="our-blog">
           <p class="question">наш блог</p>
           <p class="speech" id="blog">Ведем Инстаграм</p>
-          <a href="#" class="insta-button" tabindex="0">@docmed</a>
+          <a href="https://www.instagram.com/docmed_clinic/" class="insta-button" tabindex="0">@docmed</a>
           <img src="./pic/phone-inst.png" alt="Смотрите наш блог в Инстаграм" height="254px" width="367px">
         </div>
 
@@ -317,38 +317,106 @@
       <p class="form-message">Нажимая кнопку «Отправить», я соглашаюсь с условиями обработки персональных данных</p>
     </form>
 
-    <div class="form-send" id="form-send">
-      <div class="img"><img src="./pic/form-send-img.png" alt="эмоджи" width="120px" height="153px">
-        </div>
-      <h2>Заявка отправлена</h2>
+    <div class="form-send visually-hidden">
+      <div class="img">
+        <img src="./pic/form-send-img.png" alt="эмоджи" width="120px" height="153px">
+     </div>
+      <h2>Заявка отравлена</h2>
       <p>Спасибо. В ближайшее время мы вам перезвоним</p>
-      <button type="button" name="close" class="button" aria-label="Закрыть">Понятно</button>
+      <button type="button" name="close" class="button close-form-send" aria-label="Закрыть">Понятно</button>
     </div>
     <!-- <script src="app.js"></script> -->
     <script>
-    var link = document.querySelector('.white-button');
+     var link = document.querySelector('.white-button');
      var popup = document.querySelector('.form');
      var exit = document.querySelector('.close-btn');
      var login = popup.querySelector('[name="user-name"]');
      var number = popup.querySelector('[name="user-number"]');
+     var isStorageSupport = true;
+     var storage = "";
+     var formSend = document.querySelector('.form-send');
+     var formSendCloseBtn = document.querySelector('.close-form-send');
+     var firstButton = document.querySelector('.first-button');
+     var doctorBtn = document.querySelector('.doctor-btn');
+
+  try {
+    storage = localStorage.getItem('login');
+  } catch (err) {
+    isStorageSupport = false;
+  }
 
      link.addEventListener('click', function(evt) {
        evt.preventDefault();
        popup.classList.remove('visually-hidden');
        popup.classList.add('modal-show');
+       if (storage) {
+      login.value = storage;
+      number.focus();
+      } else {
+        login.focus();
+      }
+    });
+    firstButton.addEventListener('click', function(evt) {
+      evt.preventDefault();
+      popup.classList.remove('visually-hidden');
+      popup.classList.add('modal-show');
+      if (storage) {
+     login.value = storage;
+     number.focus();
+     } else {
        login.focus();
-     });
+     }
+   });
+
+   doctorBtn.addEventListener('click', function(evt) {
+     evt.preventDefault();
+     popup.classList.remove('visually-hidden');
+     popup.classList.add('modal-show');
+     if (storage) {
+    login.value = storage;
+    number.focus();
+    } else {
+      login.focus();
+    }
+  });
 
     popup.addEventListener('submit', function(evt) {
       if(!login.value || !number.value){
        evt.preventDefault();
-       console.log('нужно ввести имя и номер телефона');}
-     });
+       console.log('нужно ввести имя и номер телефона')}
+       else {
+      if (isStorageSupport) {
+        localStorage.setItem('login', login.value);
+      }}
+  });
+  popup.addEventListener('submit', function(evt){
+    evt.preventDefault();
+    formSend.classList.remove('visually-hidden');
+    formSend.classList.add('modal-show');
+    popup.classList.remove('modal-show');
+    popup.classList.add('visually-hidden');
+  })
 
      exit.addEventListener('click', function(evt){
        evt.preventDefault();
        popup.classList.remove('modal-show');
        popup.classList.add('visually-hidden');
      });
+
+     window.addEventListener('keydown', function (evt) {
+    if (evt.keyCode === 27) {
+      evt.preventDefault();
+      if (popup.classList.contains('modal-show')) {
+        popup.classList.remove('modal-show');
+        popup.classList.add('visually-hidden');
+      }
+    }
+  });
+  formSendCloseBtn.addEventListener('click', function(evt){
+    evt.preventDefault();
+    formSend.classList.remove('modal-show');
+    formSend.classList.add('visually-hidden');
+  });
+
     </script>
   </body>

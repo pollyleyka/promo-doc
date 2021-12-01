@@ -199,6 +199,25 @@ dd {
     font-style: italic;
     font-display: swap;
 }
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-2000px);
+  }
+
+  70% {
+    transform: translateY(30px);
+  }
+
+  90% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -979,7 +998,7 @@ ol {
   justify-content: space-between;
   box-sizing: border-box;
   width: 1080px;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   padding-bottom: 40px;
   padding-top: 55px;
   margin-top: 80px;
@@ -1005,6 +1024,9 @@ ol {
   padding-right: 60px;
 }
 .form {
+  position: fixed;
+  top: 50px;
+  margin-left: 417px;
   width: 446px;
   height: 593px;
   background: #FFFFFF;
@@ -1107,45 +1129,42 @@ input {
   color: #CAC9D8;
 }
 .form-send {
+  position: fixed;
+  top: 70px;
+  margin-left: 450px;
   width: 445px;
   height: 464px;
   background: #FFFFFF;
   box-shadow: 0px 24px 50px rgba(0, 0, 0, 0.05);
   border-radius: 30px;
   box-sizing: border-box;
+  padding: 40px;
+  padding-top: 30px;
 }
+.img img {
+  margin-left: 123px;
+  margin-right: 122px;
+  box-sizing: border-box;
+}
+
 .form-send h2 {
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 365px;
 font-style: normal;
 font-weight: 500;
 font-size: 32px;
 line-height: 38px;
-text-align: center;
 letter-spacing: -0.01em;
 color: #1F1F29;
-padding-bottom: 20px;
-border-bottom: 1px solid #1F1F29;
+padding: 20px 0;
+border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+margin-left: auto;
+margin-right: auto;
+width: 356px;
 box-sizing: border-box;
-padding-right: 30px;
-padding-left: 29px;
+text-align: center;
 margin-bottom: 20px;
 }
-.img {
-  padding-top: ;
-  margin-right: auto;
-  margin-left: auto;
-}
+
 .form-send p {
-  width: 366px;
-  height: 48px;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -1153,6 +1172,12 @@ margin-bottom: 20px;
   letter-spacing: 0.01em;
   color: #1F1F29;
   margin-bottom: 40px;
+}
+.close-form-send {
+  width: 366px;
+  height: 55px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .consultation {
     width: 1200px;
@@ -1172,9 +1197,7 @@ main {
 
 .modal-show {
   display: block;
-  position: fixed;
-  top: 50px;
-  margin-left: 417px;
+  animation: bounce 0.6s;
 }
 
 button:hover {
