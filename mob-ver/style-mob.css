@@ -264,6 +264,9 @@ a:-webkit-any-link {
   height: 303px;
   width: 375px;
   padding-top: 10px;
+  position: fixed;
+  background: white;
+  border-radius: 10px;
 }
 .mob-header--main-nav-wrap {
   display: -webkit-flex;
@@ -307,4 +310,59 @@ a:-webkit-any-link {
   cursor: pointer;
   margin-top: 50px;
   box-sizing: border-box;
+}
+/* Главная страница */
+
+
+/* .gradient-1{
+  position: absolute;
+  width: 498.72px;
+  height: 558.89px;
+  left: 288.83px;
+  top: 511.93px;
+
+  background: linear-gradient(180deg, #788EFF 0%, #FEBB58 100%);
+  opacity: 0.12;
+  filter: blur(250px);
+  transform: matrix(0.53, -0.91, -0.78, -0.56, 0, 0);
+} */
+.background {
+  background: no-repeat url('pic/background.png');
+}
+.firstpage-wrap {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-bottom: 1px solid #1F1F29;
+  margin: 20px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+}
+.firstpage--title {
+  font-family: Lab Grotesque;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 110%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #1F1F29;
+}
+.firstpage--img {
+  align-self: center;
+  margin: 20px;
+}
+.firstpage--text {
+  font-family: Lab Grotesque;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 150%;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #1F1F29;
+  margin-bottom: 30px;
 }
