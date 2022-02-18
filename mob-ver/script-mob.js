@@ -5,13 +5,13 @@ const navMenu = document.querySelector('.mob-header--main-nav')
 
 
 
-burgerMenu.addEventListener('click', function(evt) {
+burgerMenu.addEventListener('click', function (evt) {
   evt.preventDefault();
   navMenu.classList.toggle('visually-hidden');
   burgerMenu.classList.toggle('visually-hidden');
   burgerCross.classList.toggle('visually-hidden');
 })
-burgerCross.addEventListener('click', function(evt) {
+burgerCross.addEventListener('click', function (evt) {
   evt.preventDefault();
   navMenu.classList.toggle('visually-hidden');
   burgerMenu.classList.toggle('visually-hidden');
