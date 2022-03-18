@@ -731,7 +731,9 @@ time {
 .datatime-patient {
   color: #FFFFFF;
 }
-
+.patient-speach{
+color: #FFFFFF;
+}
 .datatime-docmed {
   color: #CAC9D8;
 }
